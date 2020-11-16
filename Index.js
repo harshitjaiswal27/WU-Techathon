@@ -107,7 +107,7 @@ function custom_sort(){
     });
 }
 
-custom_sort();
+// custom_sort();
 
 //function to print array in console
 function display(pro)
@@ -117,10 +117,13 @@ function display(pro)
 }
 
 function submitIt(){
-    amount = document.getElementById("amount").value;
+    amount =  parseInt(document.getElementById("amount").value);
+    
     from = document.getElementById("source").value;
     to = document.getElementById("destination").value;
     url = `https://api.transferwise.com/v3/comparisons/?sourceCurrency=${to}&targetCurrency=${from}&sendAmount=${amount}`;
+    console.log(from,to,amount);
+    custom_sort();
 }
 
 // function to append stuff in html
