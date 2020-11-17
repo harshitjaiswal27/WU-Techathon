@@ -23,7 +23,6 @@
                     <option value="USD">USD</option>
                     <option value="INR">INR</option>
                     <option value="EUR">EUR</option>
-                    <!-- <option value="UAH">UAH</option> -->
                     <option value="AUD">AUD</option>
                     <option value="GBP">GBP</option>
                 </select>
@@ -36,7 +35,6 @@
                     <option value="INR">INR</option>
                     <option value="USD">USD</option>
                     <option value="EUR">EUR</option>
-                    <!-- <option value="UAH">UAH</option> -->
                     <option value="AUD">AUD</option>
                     <option value="GBP">GBP</option>
                 </select>
@@ -44,26 +42,29 @@
             <button  class="btn btn-primary mx-2" onclick="submitIt()">Compare providers</button>
         </div>
         
-        <select id="sort" onchange="custom_sort()" class="custom-select justify-content-center mb-3" style="max-width: 300px; align-items: center; ">
+        <select id="sort" onchange="custom_sort()" class="my-4 btn btn-primary" style="max-width: 300px;display: block; margin: 0 auto; ">
             <option selected>Default</option>
-            <option value="sortByReceivedAmount_Asc">Received Amount - Low to High</option>
+            <option value="sortByReceivedAmount_Asc"> Received Amount - Low to High</option>
             <option value="sortByReceivedAmount_Dsc">Received Amount - High to Low</option>
             <option value="sortByRate_Asc">Rate - Low to High</option>
             <option value="sortByRate_Dsc">Rate - High to Low</option>
             <option value="sortByFee_Asc">Fee - Low to High</option>
             <option value="sortByFee_Dsc">Fee - High to Low</option>
         </select>
-        <div class="row">
-            <div class="col-2" style="margin-left: 10%; ">Provider</div>
-            <div class="col-2" style="margin-left: 4%;">Fees</div>
-            <div class="col-2" style="margin-left: 7%;">Rate</div>
-            <div class="col-2" style="margin-left: 6%;">Recived amount</div>
-          </div>
-        
-        <ul id="myList" style="list-style-type: none;">
-        </ul>
-    </div>
 
+        <div class="card " style="max-width: 1000px ; margin: 0 auto;">
+            <div class="row my-2" >
+                <div class="col-3" style="text-align: center; " > <strong>Provider</strong></div>
+                <div class="col-2" style="text-align: center;" ><strong>Online Fees</strong></div>
+                <div class="col-2" style="text-align: center;" ><strong>Rate</strong></div>
+                <div class="col-2" style="text-align: center;" ><strong>Recived amount</strong></div>
+                <div class="col-3" style="text-align: center;" ><strong>Duration(HH:MM:SS)</strong></div>
+            </div>
+        </div>
+
+        <div id="myList" ;"></div>
+
+    </div>
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
