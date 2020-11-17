@@ -6,7 +6,7 @@ var to = "EUR";
 var amount = 1000;
 var url;
 
-url = `https://api.transferwise.com/v3/comparisons/?sourceCurrency=${to}&targetCurrency=${from}&sendAmount=${amount}`;
+url = `https://api.transferwise.com/v3/comparisons/?sourceCurrency=${from}&targetCurrency=${to}&sendAmount=${amount}`;
 
 const fetchData = async () => {
   const api_call = await fetch(url);
@@ -87,7 +87,6 @@ function sortById(data){
 }
 
 function custom_sort(){
-    console.log(document.getElementById('sort').value);
     fetchData().then((res) => {
         var data = new Array();
         for (let i = 0; i < res.data.providers.length; i++)
@@ -107,7 +106,7 @@ function custom_sort(){
     });
 }
 
-// custom_sort();
+custom_sort();
 
 //function to print array in console
 function display(pro)
@@ -121,7 +120,7 @@ function submitIt(){
     
     from = document.getElementById("source").value;
     to = document.getElementById("destination").value;
-    url = `https://api.transferwise.com/v3/comparisons/?sourceCurrency=${to}&targetCurrency=${from}&sendAmount=${amount}`;
+    url = `https://api.transferwise.com/v3/comparisons/?sourceCurrency=${from}&targetCurrency=${to}&sendAmount=${amount}`;
     console.log(from,to,amount);
     custom_sort();
 }
@@ -132,44 +131,48 @@ function manipulateDOM(pro)
     document.getElementById("myList").innerHTML="";
 
     for(var i=0;i<pro.length;i++){
-        
-        const newCard = document.createElement("div"); 
-        newCard.className = "card mb-3";
 
         const cardRow = document.createElement("div"); 
-        cardRow.className = "row no-gutters";
+        cardRow.className = "row";
 
         const itemDiv1 = document.createElement("div");
-        itemDiv1.className = "col-md-3";
+        itemDiv1.className = "col-4";
         var logo = document.createElement("IMG");
-        logo.className = "mx-4 my-4";
+        logo.className = "my-3 ";
+        logo.style = " max-width: 170px; height:35px; display: block; margin:0 auto;";
         logo.setAttribute("src", pro[i].logo);
         itemDiv1.appendChild(logo);
         cardRow.appendChild(itemDiv1);
 
         const itemDiv2 = document.createElement("div");
-        itemDiv2.className = "col-md-2";
-        itemDiv2.style = "margin:auto;";
+        itemDiv2.className = "col-2";
+        itemDiv2.style = "margin: auto; text-align:center;";
         itemDiv2.appendChild(document.createTextNode(pro[i].quotes[0].fee));
         cardRow.appendChild(itemDiv2);
 
         const itemDiv3 = document.createElement("div");
-        itemDiv3.className = "col-md-2";
-        itemDiv3.style = "margin:auto;";
+        itemDiv3.className = "col-2";
+        itemDiv3.style = "margin:auto; text-align:center;";
         itemDiv3.appendChild(document.createTextNode(pro[i].quotes[0].rate));
         cardRow.appendChild(itemDiv3);
 
         const itemDiv4 = document.createElement("div");
-        itemDiv4.className = "col-md-2";
-        itemDiv4.style = "margin:auto;";
+        itemDiv4.className = "col-2";
+        itemDiv4.style = "margin:auto; text-align:center;";
         itemDiv4.appendChild(document.createTextNode(pro[i].quotes[0].receivedAmount));
         cardRow.appendChild(itemDiv4);
 
+        const itemDiv5 = document.createElement("div");
+        itemDiv5.className = "col-2";
+        itemDiv5.style = "margin:auto; text-align:center;";
+        itemDiv5.appendChild(document.createTextNode(pro[i].quotes[0].receivedAmount));
+        cardRow.appendChild(itemDiv5);
+
+        const newCard = document.createElement("div"); 
+        newCard.className = "card my-2 ";
+        newCard.style = "max-width: 1000px; margin: 0 auto;";
         newCard.appendChild(cardRow);
-        
-        var listnode = document.createElement("LI");
-        listnode.appendChild(newCard);
-        document.getElementById("myList").appendChild(listnode);
+        document.getElementById("myList").appendChild(newCard);
     }  
 }
 
