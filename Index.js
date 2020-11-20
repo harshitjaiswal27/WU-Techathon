@@ -13,164 +13,149 @@ const fetchData = async () => {
   };
 };
 
-function submitIt(){
+function compareProviders(){
+
+    document.getElementById("providers").innerHTML="";
+
     amount =  parseInt(document.getElementById("amount").value);
     
     from = document.getElementById("source").value;
     to = document.getElementById("destination").value;
     url = `https://api.transferwise.com/v3/comparisons/?sourceCurrency=${from}&targetCurrency=${to}&sendAmount=${amount}`;
-    console.log(from,to,amount);
-    custom_sort();
-}
 
-function custom_sort(){
     fetchData().then((res) => {
         var data = new Array();
         for (let i = 0; i < res.data.providers.length; i++)
             data.push(res.data.providers[i]);
         
+            manipulateDOM(data);
             display(data);
-
-        switch(document.getElementById('sort').value){
-            case 'sortByReceivedAmount_Asc': sortByReceivedAmount_Asc(data);    break;
-            case 'sortByReceivedAmount_Dsc': sortByReceivedAmount_Dsc(data);    break;
-            case 'sortByRate_Asc': sortByRate_Asc(data);    break;
-            case 'sortByRate_Dsc': sortByRate_Dsc(data);    break;
-            case 'sortByFee_Asc': sortByFee_Asc(data);    break;
-            case 'sortByFee_Dsc': sortByFee_Dsc(data);    break;
-            default: sortById(data);
-        }
     });
 }
 
-// function to append stuff in html
-function manipulateDOM(pro)
-{
-    document.getElementById("myList").innerHTML="";
-
-    for(var i=0;i<pro.length;i++){
-
-        const cardRow = document.createElement("div"); 
-        cardRow.className = "row";
-
-        const itemDiv1 = document.createElement("div");
-        itemDiv1.className = "col-3";
-        var logo = document.createElement("IMG");
-        logo.className = "my-3 ";
-        logo.style = " max-width: 170px; height:35px; display: block; margin:0 auto;";
-        logo.setAttribute("src", pro[i].logo);
-        itemDiv1.appendChild(logo);
-        cardRow.appendChild(itemDiv1);
-
-        const itemDiv2 = document.createElement("div");
-        itemDiv2.className = "col-2";
-        itemDiv2.style = "margin: auto; text-align:center;";
-        itemDiv2.appendChild(document.createTextNode(pro[i].quotes[0].fee));
-        cardRow.appendChild(itemDiv2);
-
-        const itemDiv3 = document.createElement("div");
-        itemDiv3.className = "col-2";
-        itemDiv3.style = "margin:auto; text-align:center;";
-        itemDiv3.appendChild(document.createTextNode(pro[i].quotes[0].rate));
-        cardRow.appendChild(itemDiv3);
-
-        const itemDiv4 = document.createElement("div");
-        itemDiv4.className = "col-2";
-        itemDiv4.style = "margin:auto; text-align:center;";
-        itemDiv4.appendChild(document.createTextNode(pro[i].quotes[0].receivedAmount));
-        cardRow.appendChild(itemDiv4);
-
-        const itemDiv5 = document.createElement("div");
-        itemDiv5.className = "col-3";
-        itemDiv5.style = "margin:auto; text-align:center;";
-        itemDiv5.appendChild(document.createTextNode(deliveryEstimation(pro[i].quotes[0].deliveryEstimation.duration)));
-        cardRow.appendChild(itemDiv5);
-
-        const newCard = document.createElement("div"); 
-        newCard.className = "card my-2 ";
-        newCard.style = "max-width: 1000px; margin: 0 auto;";
-        newCard.appendChild(cardRow);
-        document.getElementById("myList").appendChild(newCard);
-    }  
-}
-
-
-
-//function to print array in console
 function display(pro)
 {
   for (let i = 0; i < pro.length; i++)
     console.log(pro[i]);
 }
 
-function sortByFee_Asc(data){
-    data.sort(function(a,b){
-        if(a.quotes[0].fee>b.quotes[0].fee)
-          return 1;
-        else
-          return -1;
-    });
-    manipulateDOM(data);
+function manipulateDOM(data)
+{
+    if(data.length==0){
+
+        let tr = document.createElement("tr");
+        let td = document.createElement("td");
+        td.colSpan=5;
+        td.appendChild(document.createTextNode("No provider found for given amount & selected combination!"));
+        tr.appendChild(td);
+
+        document.getElementById("providers").appendChild(tr);
+    }
+
+    for(var i=0;i<data.length;i++){
+
+        let tr = document.createElement("tr");
+
+        let td = document.createElement("td");
+        let img = document.createElement("IMG");
+        img.setAttribute("src", data[i].logo);
+
+        td.appendChild(img);
+        tr.appendChild(td);
+        
+        let fee = data[i].quotes[0].fee;
+        let rate = data[i].quotes[0].rate;
+
+        td = document.createElement("td");
+        td.appendChild(document.createTextNode(fee.toFixed(2)+" "+from));
+        td.appendChild(document.createElement("br"));
+        var node = document.createElement("span");
+        node.style = "font-size: smaller;";
+        node.appendChild(document.createTextNode("("+(fee*rate).toFixed(2)+" "+to+")"));
+        td.appendChild(node);
+
+        tr.appendChild(td);
+
+        td = document.createElement("td");
+        node = document.createElement("span");
+        node.style = "font-size: smaller;";
+        node.appendChild(document.createTextNode("1 "+from+" = "))
+        td.appendChild(node);
+        td.appendChild(document.createElement("br"));
+        td.appendChild(document.createTextNode(rate.toFixed(4)+" "+to));
+
+        tr.appendChild(td);
+
+        td = document.createElement("td");
+        td.appendChild(document.createTextNode(data[i].quotes[0].receivedAmount.toFixed(2)+" "+to));
+
+        tr.appendChild(td);
+
+        td = document.createElement("td");
+        td.appendChild(document.createTextNode(deliveryEstimation(data[i].quotes[0].deliveryEstimation.duration)));
+
+        tr.appendChild(td);
+
+        document.getElementById("providers").appendChild(tr);
+    }  
 }
 
-function sortByFee_Dsc(data){
-    data.sort(function(a,b){
-        if(a.quotes[0].fee>b.quotes[0].fee)
-          return -1;
-        else
-          return 1;
-    });
-    manipulateDOM(data);
+function sortTable(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("providers");
+    switching = true;
+    dir = "asc"; 
+
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+
+        for (i = 0; i < (rows.length - 1); i++){
+            
+            shouldSwitch = false;
+
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+
+            if (dir == "asc"){
+                if (x.innerHTML > y.innerHTML){
+                    shouldSwitch= true;
+                    break;
+                }
+            } 
+            else if (dir == "desc"){
+                if (x.innerHTML < y.innerHTML){
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        
+        if (shouldSwitch){
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount ++; 
+        } 
+        else{
+            if (switchcount == 0 && dir == "asc"){
+                dir = "desc";
+                switching = true;
+            }
+        }
+    }
 }
 
-function sortByRate_Asc(data){
-    data.sort(function(a,b){
-        if(a.quotes[0].fee>b.quotes[0].rate)
-          return -1;
-        else
-          return 1;
-    });
-    manipulateDOM(data);
-}
-
-function sortByRate_Dsc(data){
-    data.sort(function(a,b){
-        if(a.quotes[0].fee>b.quotes[0].rate)
-          return 1;
-        else
-          return -1;
-    });
-    manipulateDOM(data);
-}
-
-function sortByReceivedAmount_Asc(data){
-    data.sort(function(a,b){
-        if(a.quotes[0].receivedAmount>b.quotes[0].receivedAmount)
-            return 1;
-        else
-            return -1;
-    });
-    manipulateDOM(data);
-}
-
-function sortByReceivedAmount_Dsc(data){
-    data.sort(function(a,b){
-        if(a.quotes[0].receivedAmount>b.quotes[0].receivedAmount)
-            return -1;
-        else
-            return 1;
-    });
-    manipulateDOM(data);
-}
-
-function sortById(data){
-    data.sort(function(a,b){
-        if(a.id>b.id)
-          return 1;
-        else
-          return -1;
-    });
-    manipulateDOM(data);
+function deliveryEstimation(duration){
+    var s="";
+    if(duration == null)
+        s+='--';
+    else if(duration.min == null)
+        s+="Upto "+ convertDuration(duration.max);
+    else if(duration.max == null)
+        s+="Minimum "+ convertDuration(duration.min);
+    else
+        s+="Within "+ convertDuration(duration.max);
+    return s;
 }
 
 function convertDuration(t){ 
@@ -238,16 +223,4 @@ function convertDuration(t){
 
     duration += time.M + ':' + time.S;
     return duration;
-}
-
-function deliveryEstimation(duration){
-    var s="";
-    if(duration.min == null)
-        s+="Upto "+ convertDuration(duration.max);
-    else if(duration.max == null)
-        s+="Minimum "+ convertDuration(duration.min);
-    else
-        s+="Within "+ convertDuration(duration.max);
-    
-    return s;
 }

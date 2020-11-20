@@ -1,0 +1,38 @@
+table {
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    margin: auto;
+    width: 95%;
+    text-align: center;
+}
+
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+td{
+    height: 90px;
+}
+
+th, td {
+    text-align: center;
+    padding: 16px;
+}
+
+th{
+    background-color: #18304b;
+    color: #b9defe;
+}
+
+tr{
+    border-bottom: 1px solid #ddd;
+}
+  
+#myButton{
+    border-radius: 0px;
+    background-color: #18304b;
+    color: #b9defe; 
+    border-color: #18304b;
+}
+
+
