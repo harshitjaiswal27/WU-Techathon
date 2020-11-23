@@ -58,6 +58,7 @@ function manipulateDOM(data)
 
         let td = document.createElement("td");
         let img = document.createElement("IMG");
+        img.style = "max-width:150px ; max-height:50px;"
         img.setAttribute("src", data[i].logo);
 
         td.appendChild(img);
