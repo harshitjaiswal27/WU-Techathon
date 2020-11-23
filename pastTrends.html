@@ -24,6 +24,11 @@
 <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
 <script src="https://canvasjs.com/assets/script/jquery-ui.1.12.1.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 <script type="text/javascript">
 window.onload = function () {
   var currency_symbols = {
@@ -37,14 +42,15 @@ window.onload = function () {
   var urlParams = new URLSearchParams(window.location.search);
   var source = urlParams.get('source');
   var dest = urlParams.get('dest');
+  document.getElementById("heading").innerHTML = "Forex Mid Market Rates for "+source+" to "+dest;  
   var stockChart = new CanvasJS.StockChart("chartContainer", {
     title:{
-      text:"Forex Mid Market Rates for "+source+" to "+dest,
-      fontFamily: "helvetica"
+      fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'"
     },
     subtitles: [{
       text: "Click on inputfields to update the range using datepicker",
-      fontFamily: "helvetica"
+      fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'"
+ 
     }],
     rangeChanged: function(e) {
       if(e.source == "inputFields") {
@@ -125,6 +131,37 @@ window.onload = function () {
 </script>
 </head>
 <body>
+  <div class="container" style="margin-bottom: 50px;" >
+    <h3 style="text-align: center; margin-top: 20px; font-weight: bold; color: #18304b;" id = "heading">Forex Mid Market Rates for </h3>
+    <br>
+    <div class="form-inline mb-3 justify-content-center"  >
+       
+        <div class="form-group mx-2">
+            <select class="form-control" style="border-radius: 0px;" id="source">
+                <option value="USD">USD</option>
+                <option value="INR">INR</option>
+                <option value="EUR">EUR</option>
+                <option value="AUD">AUD</option>
+                <option value="GBP">GBP</option>
+            </select>
+        </div>
+        <div class="form-group mx-2 ">
+            <h4 style="color: #18304b;">to</h4>
+        </div>
+        <div class="form-group mx-2" >
+            <select class="form-control"  style="border-radius: 0px;" id="destination">
+                <option value="INR">INR</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="AUD">AUD</option>
+                <option value="GBP">GBP</option>
+            </select>
+        </div>
+        <button  class="my-4 btn btn-primary" id="myButton" onclick="window.location.href='pastTrends.html?source='+document.getElementById('source').value+'&dest='+document.getElementById('destination').value;" >Past Rates and Trends</button>
+    </div>
+    
+   
+</div>
 <div id="chartContainer" style="height: 400px; width: 100%; overflow: hidden;"></div>
 </body>
 </html>
