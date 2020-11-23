@@ -26,10 +26,20 @@
 <script src="https://canvasjs.com/assets/script/jquery-ui.1.12.1.min.js"></script>
 <script type="text/javascript">
 window.onload = function () {
+  var currency_symbols = {
+    'USD': '$', // US Dollar
+    'EUR': '€', // Euro
+    'GBP': '£', // British Pound Sterling
+    'INR': '₹', // Indian Rupee
+    'AUD': '$', // Vietnamese Dong
+};
   var dataPoints1 = [], dataPoints2 = [] ;
+  var urlParams = new URLSearchParams(window.location.search);
+  var source = urlParams.get('source');
+  var dest = urlParams.get('dest');
   var stockChart = new CanvasJS.StockChart("chartContainer", {
     title:{
-      text:"Forex Mid Market",
+      text:"Forex Mid Market Rates for "+source+" to "+dest,
       fontFamily: "helvetica"
     },
     subtitles: [{
@@ -49,15 +59,15 @@ window.onload = function () {
         }
       },
       axisY: {
-        prefix: "€"
+        prefix: currency_symbols[dest]
       },
       toolTip: {
         shared: true
       },
       data: [{
         type: "ohlc",
-        name: "Litecoin Price",
-        yValueFormatString: "€#,###.##",
+        name: currency_symbols[dest]+"Price",
+        yValueFormatString: currency_symbols[dest]+"#,###.##",
         dataPoints : dataPoints1
       }]
     }],
