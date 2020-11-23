@@ -70,7 +70,7 @@ window.onload = function () {
       }]
     }
   });
-  jQuery.getJSON("https://canvasjs.com/data/docs/ltceur2018.json", function(data) {
+  jQuery.getJSON("https://api.jsonbin.io/b/5fbb7577522f1f0550cc6e37", function(data) {
     for(var i = 0; i < data.length; i++){
       dataPoints1.push({x: new Date(data[i].date), y: [Number(data[i].open), Number(data[i].high), Number(data[i].low), Number(data[i].close)]});
       dataPoints2.push({x: new Date(data[i].date), y: Number(data[i].close)});
