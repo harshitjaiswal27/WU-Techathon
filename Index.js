@@ -25,10 +25,12 @@ function compareProviders(){
 
     fetchData().then((res) => {
         var data = new Array();
-        for (let i = 0; i < res.data.providers.length; i++)
+        var ma = Number.MIN_SAFE_INTEGER ;
+        for (let i = 0; i < res.data.providers.length; i++){
             data.push(res.data.providers[i]);
-        
-            manipulateDOM(data);
+            ma = Math.max(ma,res.data.providers[i].quotes[0].receivedAmount);
+        }
+            manipulateDOM(data,ma);
             display(data);
     });
 }
@@ -39,7 +41,7 @@ function display(pro)
     console.log(pro[i]);
 }
 
-function manipulateDOM(data)
+function manipulateDOM(data,ma)
 {
     if(data.length==0){
 
@@ -55,6 +57,8 @@ function manipulateDOM(data)
     for(var i=0;i<data.length;i++){
 
         let tr = document.createElement("tr");
+        if(data[i].quotes[0].receivedAmount==ma)
+            tr.style = "background-color : #00ba9c";
 
         let td = document.createElement("td");
         let img = document.createElement("IMG");
