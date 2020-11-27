@@ -5,6 +5,7 @@ var url;
 
 url = `https://api.transferwise.com/v3/comparisons/?sourceCurrency=${from}&targetCurrency=${to}&sendAmount=${amount}`;
 
+//function to fetch data from api
 const fetchData = async () => {
   const api_call = await fetch(url);
   const data = await api_call.json();
@@ -13,6 +14,7 @@ const fetchData = async () => {
   };
 };
 
+//function to set parameter in api call
 function compareProviders(){
 
     document.getElementById("providers").innerHTML="";
@@ -21,7 +23,11 @@ function compareProviders(){
     
     from = document.getElementById("source").value;
     to = document.getElementById("destination").value;
+
     url = `https://api.transferwise.com/v3/comparisons/?sourceCurrency=${from}&targetCurrency=${to}&sendAmount=${amount}`;
+
+    //uncomment this line for getting data from local json file 
+    // url =  `http://localhost:8000/data/USDtoINR_1000.json`
 
     fetchData().then((res) => {
         var data = new Array();
@@ -35,12 +41,14 @@ function compareProviders(){
     });
 }
 
+//function to print data on console
 function display(pro)
 {
   for (let i = 0; i < pro.length; i++)
     console.log(pro[i]);
 }
 
+//function to append providers in table 
 function manipulateDOM(data,ma)
 {
     if(data.length==0){
@@ -105,6 +113,7 @@ function manipulateDOM(data,ma)
     }  
 }
 
+//function to sort table by required column
 function sortTable(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("providers");
@@ -150,6 +159,7 @@ function sortTable(n) {
     }
 }
 
+//function to set duration according to the min/max value
 function deliveryEstimation(duration){
     var s="";
     if(duration == null)
@@ -163,6 +173,7 @@ function deliveryEstimation(duration){
     return s;
 }
 
+//function to parse the ISO8601 duration format to HH:MM:SS
 function convertDuration(t){ 
     //dividing period from time
     var x = t.split('T'),

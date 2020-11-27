@@ -1,0 +1,331 @@
+{
+    "sourceCurrency": "GBP",
+    "targetCurrency": "AUD",
+    "sourceCountry": null,
+    "targetCountry": null,
+    "providerCountry": null,
+    "providerType": null,
+    "sendAmount": 100,
+    "providers": [
+        {
+            "id": 39,
+            "alias": "transferwise",
+            "name": "TransferWise",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/transferwise.svg",
+            "type": "moneyTransferProvider",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 1.80799,
+                    "fee": 0.62,
+                    "receivedAmount": 179.68,
+                    "dateCollected": "2020-11-27T11:40:07Z",
+                    "sourceCountry": null,
+                    "targetCountry": null,
+                    "markup": 0,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT60H19M52.083706S",
+                            "max": "PT60H19M52.083706S"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 31,
+            "alias": "nationwide",
+            "name": "Nationwide",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/nationwide.svg",
+            "type": "bank",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 1.76729099,
+                    "fee": 20,
+                    "receivedAmount": 141.38,
+                    "dateCollected": "2020-11-27T11:20:03.114813Z",
+                    "sourceCountry": "GB",
+                    "targetCountry": null,
+                    "markup": 2.25106389,
+                    "deliveryEstimation": {
+                        "duration": null,
+                        "providerGivesEstimate": true
+                    }
+                },
+                {
+                    "rate": 1.76729099,
+                    "fee": 20,
+                    "receivedAmount": 141.38,
+                    "dateCollected": "2020-11-27T11:20:03.114813Z",
+                    "sourceCountry": "GB",
+                    "targetCountry": "AU",
+                    "markup": 2.25106389,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": null,
+                            "max": "PT96H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "alias": "natwest",
+            "name": "NatWest",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/natwest.svg",
+            "type": "bank",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 1.71562478,
+                    "fee": 0,
+                    "receivedAmount": 171.56,
+                    "dateCollected": "2020-11-27T11:30:02.311128Z",
+                    "sourceCountry": "GB",
+                    "targetCountry": null,
+                    "markup": 5.10872405,
+                    "deliveryEstimation": {
+                        "duration": null,
+                        "providerGivesEstimate": true
+                    }
+                },
+                {
+                    "rate": 1.71562478,
+                    "fee": 0,
+                    "receivedAmount": 171.56,
+                    "dateCollected": "2020-11-27T11:30:02.311128Z",
+                    "sourceCountry": "GB",
+                    "targetCountry": "CX",
+                    "markup": 5.10872405,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT48H",
+                            "max": "PT96H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                },
+                {
+                    "rate": 1.71562478,
+                    "fee": 0,
+                    "receivedAmount": 171.56,
+                    "dateCollected": "2020-11-27T11:30:02.311128Z",
+                    "sourceCountry": "GB",
+                    "targetCountry": "AU",
+                    "markup": 5.10872405,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT48H",
+                            "max": "PT96H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                },
+                {
+                    "rate": 1.71562478,
+                    "fee": 0,
+                    "receivedAmount": 171.56,
+                    "dateCollected": "2020-11-27T11:30:02.311128Z",
+                    "sourceCountry": "GB",
+                    "targetCountry": "NF",
+                    "markup": 5.10872405,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT48H",
+                            "max": "PT96H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                },
+                {
+                    "rate": 1.71562478,
+                    "fee": 0,
+                    "receivedAmount": 171.56,
+                    "dateCollected": "2020-11-27T11:30:02.311128Z",
+                    "sourceCountry": "GB",
+                    "targetCountry": "TV",
+                    "markup": 5.10872405,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT48H",
+                            "max": "PT96H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                },
+                {
+                    "rate": 1.71562478,
+                    "fee": 0,
+                    "receivedAmount": 171.56,
+                    "dateCollected": "2020-11-27T11:30:02.311128Z",
+                    "sourceCountry": "GB",
+                    "targetCountry": "HM",
+                    "markup": 5.10872405,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT48H",
+                            "max": "PT96H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                },
+                {
+                    "rate": 1.71562478,
+                    "fee": 0,
+                    "receivedAmount": 171.56,
+                    "dateCollected": "2020-11-27T11:30:02.311128Z",
+                    "sourceCountry": "GB",
+                    "targetCountry": "NR",
+                    "markup": 5.10872405,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT48H",
+                            "max": "PT96H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                },
+                {
+                    "rate": 1.71562478,
+                    "fee": 0,
+                    "receivedAmount": 171.56,
+                    "dateCollected": "2020-11-27T11:30:02.311128Z",
+                    "sourceCountry": "GB",
+                    "targetCountry": "KI",
+                    "markup": 5.10872405,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT48H",
+                            "max": "PT96H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                },
+                {
+                    "rate": 1.71562478,
+                    "fee": 0,
+                    "receivedAmount": 171.56,
+                    "dateCollected": "2020-11-27T11:30:02.311128Z",
+                    "sourceCountry": "GB",
+                    "targetCountry": "CC",
+                    "markup": 5.10872405,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT48H",
+                            "max": "PT96H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 44,
+            "alias": "monzo",
+            "name": "Monzo",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/monzo.svg",
+            "type": "bank",
+            "partner": true,
+            "quotes": [
+                {
+                    "rate": 1.80799,
+                    "fee": 0.62,
+                    "receivedAmount": 179.68,
+                    "dateCollected": "2020-11-27T11:40:07Z",
+                    "sourceCountry": null,
+                    "targetCountry": null,
+                    "markup": 0,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT60H19M52.083706S",
+                            "max": "PT60H19M52.083706S"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "alias": "rbs",
+            "name": "RBS",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/rbs.svg",
+            "type": "bank",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 1.71562478,
+                    "fee": 0,
+                    "receivedAmount": 171.56,
+                    "dateCollected": "2020-11-27T11:30:02.593627Z",
+                    "sourceCountry": "GB",
+                    "targetCountry": "AU",
+                    "markup": 5.10872405,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT48H",
+                            "max": "PT96H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                },
+                {
+                    "rate": 1.71562478,
+                    "fee": 0,
+                    "receivedAmount": 171.56,
+                    "dateCollected": "2020-11-27T11:30:02.593627Z",
+                    "sourceCountry": "GB",
+                    "targetCountry": null,
+                    "markup": 5.10872405,
+                    "deliveryEstimation": {
+                        "duration": null,
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "alias": "barclays",
+            "name": "Barclays",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/barclays.svg",
+            "type": "bank",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 1.75846836,
+                    "fee": 0,
+                    "receivedAmount": 175.85,
+                    "dateCollected": "2020-11-27T11:00:04.282596Z",
+                    "sourceCountry": "GB",
+                    "targetCountry": null,
+                    "markup": 2.73904391,
+                    "deliveryEstimation": {
+                        "duration": null,
+                        "providerGivesEstimate": true
+                    }
+                },
+                {
+                    "rate": 1.75846836,
+                    "fee": 0,
+                    "receivedAmount": 175.85,
+                    "dateCollected": "2020-11-27T11:00:04.282596Z",
+                    "sourceCountry": "GB",
+                    "targetCountry": "AU",
+                    "markup": 2.73904391,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT24H",
+                            "max": "PT24H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        }
+    ]
+}

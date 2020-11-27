@@ -1,0 +1,265 @@
+{
+    "sourceCurrency": "USD",
+    "targetCurrency": "INR",
+    "sourceCountry": null,
+    "targetCountry": null,
+    "providerCountry": null,
+    "providerType": null,
+    "sendAmount": 1000,
+    "providers": [
+        {
+            "id": 6,
+            "alias": "paypal",
+            "name": "PayPal",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/paypal.svg",
+            "type": "moneyTransferProvider",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 73.23298193,
+                    "fee": 0,
+                    "receivedAmount": 73232.98,
+                    "dateCollected": "2020-11-25T22:45:18Z",
+                    "sourceCountry": "US",
+                    "targetCountry": "IN",
+                    "markup": 1.069265,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT0S",
+                            "max": null
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 22,
+            "alias": "western-union",
+            "name": "Western Union",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/western-union.svg",
+            "type": "moneyTransferProvider",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 73.79465837,
+                    "fee": 0,
+                    "receivedAmount": 73794.66,
+                    "dateCollected": "2020-11-23T10:33:20Z",
+                    "sourceCountry": "US",
+                    "targetCountry": "IN",
+                    "markup": 0.310494,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT144H",
+                            "max": "PT144H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 83,
+            "alias": "nolobank",
+            "name": "North Loop",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/north-loop.svg",
+            "type": "bank",
+            "partner": true,
+            "quotes": [
+                {
+                    "rate": 74.0245,
+                    "fee": 11.5,
+                    "receivedAmount": 73173.22,
+                    "dateCollected": "2020-11-27T12:30:26Z",
+                    "sourceCountry": null,
+                    "targetCountry": null,
+                    "markup": 0,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT2H49M32.994097S",
+                            "max": "PT2H49M32.994097S"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 39,
+            "alias": "transferwise",
+            "name": "TransferWise",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/transferwise.svg",
+            "type": "moneyTransferProvider",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 74.0245,
+                    "fee": 11.5,
+                    "receivedAmount": 73173.22,
+                    "dateCollected": "2020-11-27T12:30:26Z",
+                    "sourceCountry": null,
+                    "targetCountry": null,
+                    "markup": 0,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT2H49M32.994097S",
+                            "max": "PT2H49M32.994097S"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 66,
+            "alias": "wells-fargo",
+            "name": "Wells Fargo",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/wells-fargo.svg",
+            "type": "bank",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 71.31401373,
+                    "fee": 35,
+                    "receivedAmount": 68818.02,
+                    "dateCollected": "2020-11-25T02:58:05Z",
+                    "sourceCountry": "US",
+                    "targetCountry": "IN",
+                    "markup": 3.66160699,
+                    "deliveryEstimation": {
+                        "duration": null,
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 24,
+            "alias": "chase",
+            "name": "Chase (US)",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/chase.svg",
+            "type": "bank",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 71.67208208,
+                    "fee": 5,
+                    "receivedAmount": 71313.72,
+                    "dateCollected": "2020-11-24T13:36:12Z",
+                    "sourceCountry": "US",
+                    "targetCountry": "IN",
+                    "markup": 3.177891,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT72H",
+                            "max": "PT120H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 25,
+            "alias": "citibank",
+            "name": "CitiBank",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/citi.svg",
+            "type": "bank",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 71.94074808,
+                    "fee": 40.736,
+                    "receivedAmount": 69010.17,
+                    "dateCollected": "2020-11-25T01:21:12Z",
+                    "sourceCountry": "US",
+                    "targetCountry": "IN",
+                    "markup": 2.814949,
+                    "deliveryEstimation": {
+                        "duration": null,
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 70,
+            "alias": "sfcu",
+            "name": "Stanford Federal Credit Union",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/stanford-fcu.svg",
+            "type": "bank",
+            "partner": true,
+            "quotes": [
+                {
+                    "rate": 74.0245,
+                    "fee": 6.16,
+                    "receivedAmount": 73568.51,
+                    "dateCollected": "2020-11-27T12:30:26Z",
+                    "sourceCountry": null,
+                    "targetCountry": null,
+                    "markup": 0,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT2H49M33.037559S",
+                            "max": "PT2H49M33.037559S"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 41,
+            "alias": "xoom",
+            "name": "Xoom",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/xoom.svg",
+            "type": "moneyTransferProvider",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 73.40132253,
+                    "fee": 0,
+                    "receivedAmount": 73401.32,
+                    "dateCollected": "2020-11-25T03:50:29.906639Z",
+                    "sourceCountry": "US",
+                    "targetCountry": "IN",
+                    "markup": 0.84185299,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT0S",
+                            "max": "PT2H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 23,
+            "alias": "moneygram",
+            "name": "Moneygram",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/moneygram.svg",
+            "type": "moneyTransferProvider",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 73.73656542,
+                    "fee": 0,
+                    "receivedAmount": 73736.57,
+                    "dateCollected": "2020-11-23T10:49:42Z",
+                    "sourceCountry": "US",
+                    "targetCountry": "IN",
+                    "markup": 0.388972,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT72H",
+                            "max": "PT96H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        }
+    ]
+}

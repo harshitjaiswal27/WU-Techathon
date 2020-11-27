@@ -1,0 +1,346 @@
+{
+    "sourceCurrency": "EUR",
+    "targetCurrency": "USD",
+    "sourceCountry": null,
+    "targetCountry": null,
+    "providerCountry": null,
+    "providerType": null,
+    "sendAmount": 1000,
+    "providers": [
+        {
+            "id": 39,
+            "alias": "transferwise",
+            "name": "TransferWise",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/transferwise.svg",
+            "type": "moneyTransferProvider",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 1.1924,
+                    "fee": 5.14,
+                    "receivedAmount": 1186.27,
+                    "dateCollected": "2020-11-27T11:29:55Z",
+                    "sourceCountry": null,
+                    "targetCountry": null,
+                    "markup": 0,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT98H4.038693S",
+                            "max": "PT98H4.038693S"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 55,
+            "alias": "aib",
+            "name": "Allied Irish Banks",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/aib.svg",
+            "type": "bank",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 1.1758,
+                    "fee": 15,
+                    "receivedAmount": 1158.16,
+                    "dateCollected": "2020-11-27T11:00:01.121228Z",
+                    "sourceCountry": "IE",
+                    "targetCountry": null,
+                    "markup": 1.39215029,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT48H",
+                            "max": "PT96H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 46,
+            "alias": "n26",
+            "name": "N26",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/N26.svg",
+            "type": "bank",
+            "partner": true,
+            "quotes": [
+                {
+                    "rate": 1.1924,
+                    "fee": 5.14,
+                    "receivedAmount": 1186.27,
+                    "dateCollected": "2020-11-27T11:29:55Z",
+                    "sourceCountry": null,
+                    "targetCountry": null,
+                    "markup": 0,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT98H4.038693S",
+                            "max": "PT98H4.038693S"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "alias": "sabadell",
+            "name": "Sabadell",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/sabadell.svg",
+            "type": "bank",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 1.15377,
+                    "fee": 0,
+                    "receivedAmount": 1153.77,
+                    "dateCollected": "2020-11-27T10:40:01.327069Z",
+                    "sourceCountry": "ES",
+                    "targetCountry": null,
+                    "markup": 3.23968467,
+                    "deliveryEstimation": {
+                        "duration": null,
+                        "providerGivesEstimate": false
+                    }
+                }
+            ]
+        },
+        {
+            "id": 49,
+            "alias": "lhv",
+            "name": "LHV",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/lhv.svg",
+            "type": "bank",
+            "partner": true,
+            "quotes": [
+                {
+                    "rate": 1.1924,
+                    "fee": 5.14,
+                    "receivedAmount": 1186.27,
+                    "dateCollected": "2020-11-27T11:29:55Z",
+                    "sourceCountry": null,
+                    "targetCountry": null,
+                    "markup": 0,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT98H4.038693S",
+                            "max": "PT98H4.038693S"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 78,
+            "alias": "activobank",
+            "name": "ActivoBank",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/activo.svg",
+            "type": "bank",
+            "partner": true,
+            "quotes": [
+                {
+                    "rate": 1.1924,
+                    "fee": 5.14,
+                    "receivedAmount": 1186.27,
+                    "dateCollected": "2020-11-27T11:29:55Z",
+                    "sourceCountry": null,
+                    "targetCountry": null,
+                    "markup": 0,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT98H4.038693S",
+                            "max": "PT98H4.038693S"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 43,
+            "alias": "ing-nl",
+            "name": "ING",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/ingnl.svg",
+            "type": "bank",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 1.18335677,
+                    "fee": 15,
+                    "receivedAmount": 1165.61,
+                    "dateCollected": "2020-11-26T17:20:17.325344Z",
+                    "sourceCountry": "NL",
+                    "targetCountry": "US",
+                    "markup": 0.75840574,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT48H",
+                            "max": "PT72H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 42,
+            "alias": "rabobank",
+            "name": "Rabobank",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/rabobank.svg",
+            "type": "bank",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 1.18490032,
+                    "fee": 14.22,
+                    "receivedAmount": 1168.05,
+                    "dateCollected": "2020-11-27T10:31:10.450122Z",
+                    "sourceCountry": "NL",
+                    "targetCountry": "US",
+                    "markup": 0.62895673,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT72H",
+                            "max": "PT72H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                },
+                {
+                    "rate": 1.18490032,
+                    "fee": 14.22,
+                    "receivedAmount": 1168.05,
+                    "dateCollected": "2020-11-27T10:31:10.450122Z",
+                    "sourceCountry": "NL",
+                    "targetCountry": null,
+                    "markup": 0.62895673,
+                    "deliveryEstimation": {
+                        "duration": null,
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 60,
+            "alias": "caixa-geral-de-depositos",
+            "name": "Caixa Geral de Depósitos",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/cgd.svg",
+            "type": "bank",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 1.18894609,
+                    "fee": 80.16,
+                    "receivedAmount": 1093.64,
+                    "dateCollected": "2020-11-27T11:10:14.069114Z",
+                    "sourceCountry": "PT",
+                    "targetCountry": null,
+                    "markup": 0.28966035,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT48H",
+                            "max": "PT72H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "alias": "lacaixa",
+            "name": "LaCaixa",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/caixa-bank.svg",
+            "type": "bank",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 1.16520456,
+                    "fee": 15,
+                    "receivedAmount": 1147.73,
+                    "dateCollected": "2020-11-27T11:20:10.916441Z",
+                    "sourceCountry": "ES",
+                    "targetCountry": null,
+                    "markup": 2.2807313,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT24H",
+                            "max": "PT24H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "alias": "bbva",
+            "name": "BBVA",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/bbva.svg",
+            "type": "bank",
+            "partner": false,
+            "quotes": [
+                {
+                    "rate": 1.14884156,
+                    "fee": 28,
+                    "receivedAmount": 1116.67,
+                    "dateCollected": "2020-11-27T11:00:02.589258Z",
+                    "sourceCountry": "ES",
+                    "targetCountry": null,
+                    "markup": 3.6530057,
+                    "deliveryEstimation": {
+                        "duration": null,
+                        "providerGivesEstimate": true
+                    }
+                },
+                {
+                    "rate": 1.14884156,
+                    "fee": 28,
+                    "receivedAmount": 1116.67,
+                    "dateCollected": "2020-11-27T11:00:02.589258Z",
+                    "sourceCountry": "ES",
+                    "targetCountry": "US",
+                    "markup": 3.6530057,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": null,
+                            "max": "PT96H"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": 45,
+            "alias": "bunq",
+            "name": "bunq",
+            "logo": "https://dq8dwmysp7hk1.cloudfront.net/logos/bunq.svg",
+            "type": "bank",
+            "partner": true,
+            "quotes": [
+                {
+                    "rate": 1.1924,
+                    "fee": 5.14,
+                    "receivedAmount": 1186.27,
+                    "dateCollected": "2020-11-27T11:29:55Z",
+                    "sourceCountry": null,
+                    "targetCountry": null,
+                    "markup": 0,
+                    "deliveryEstimation": {
+                        "duration": {
+                            "min": "PT98H4.038693S",
+                            "max": "PT98H4.038693S"
+                        },
+                        "providerGivesEstimate": true
+                    }
+                }
+            ]
+        }
+    ]
+}

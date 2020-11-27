@@ -1,152 +1,173 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<link rel="stylesheet" href="https://canvasjs.com/assets/css/jquery-ui.1.12.1.min.css">
-<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
-<script src="https://canvasjs.com/assets/script/jquery-ui.1.12.1.min.js"></script>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-<script type="text/javascript">
-window.onload = function () {
-  var currency_symbols = {
-    'USD': '$', // US Dollar
-    'EUR': '€', // Euro
-    'GBP': '£', // British Pound Sterling
-    'INR': '₹', // Indian Rupee
-    'AUD': '$', // Vietnamese Dong
-};
-  var dataPoints1 = [], dataPoints2 = [] ;
-  var urlParams = new URLSearchParams(window.location.search);
-  var source = urlParams.get('source');
-  var dest = urlParams.get('dest');
-  document.getElementById("heading").innerHTML = "Forex Mid Market Rates for "+source+" to "+dest;  
-  var stockChart = new CanvasJS.StockChart("chartContainer", {
-    title:{
-      fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'"
-    },
-    subtitles: [{
-      text: "Click on inputfields to update the range using datepicker",
-      fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'"
- 
-    }],
-    rangeChanged: function(e) {
-      if(e.source == "inputFields") {
-        hideDatePicker();
-      }
-    },
-    charts: [{
-      axisX: {
-        crosshair: {
-          enabled: true,
-          snapToDataPoint: true
-        }
-      },
-      axisY: {
-        prefix: currency_symbols[dest]
-      },
-      toolTip: {
-        shared: true
-      },
-      data: [{
-        type: "ohlc",
-        name: currency_symbols[dest]+"Price",
-        yValueFormatString: currency_symbols[dest]+"#,###.##",
-        dataPoints : dataPoints1
-      }]
-    }],
-    rangeSelector: {
-      inputFields: {
-        startValue: new Date(2018, 02, 01),
-        endValue: new Date(2018, 04, 01)
-      }
-    },
-    navigator: {
-      data: [{
-        dataPoints: dataPoints2
-      }]
-    }
-  });
-  jQuery.getJSON("https://api.jsonbin.io/b/5fbb7577522f1f0550cc6e37", function(data) {
-    for(var i = 0; i < data.length; i++){
-      dataPoints1.push({x: new Date(data[i].date), y: [Number(data[i].open), Number(data[i].high), Number(data[i].low), Number(data[i].close)]});
-      dataPoints2.push({x: new Date(data[i].date), y: Number(data[i].close)});
-    }
-    stockChart.render();
-    //add jQuery UI DatePicker to inputFields
-    jQuery(".canvasjs-input-field").each(function(index) {
-      min = new Date(dataPoints2[0].x);
-      max = new Date(dataPoints2[dataPoints2.length-1].x);
-      jQuery(this).datepicker({
-        defaultDate: index === 0 ?  min : max,
-        minDate: index === 0 ? min : new Date(stockChart.rangeSelector.inputFields.get("startValue")),
-        maxDate: index == 0 ? new Date(stockChart.rangeSelector.inputFields.get("endValue")) : max,
-        dateFormat: "yy-mm-dd",
-        onSelect: function(dateText) {
-          var event = new Event("change");
-          if(index === 0) {
-            jQuery(jQuery(".canvasjs-input-field")[0]).val(new Date(dateText));
-            jQuery(".canvasjs-input-field")[0].dispatchEvent(event);
-            jQuery(jQuery(".canvasjs-input-field")[1]).datepicker("option","minDate", new Date(dateText) );
-          } else {
-            jQuery(jQuery(".canvasjs-input-field")[1]).val(new Date(dateText));
-            jQuery(".canvasjs-input-field")[1].dispatchEvent(event);
-            jQuery(jQuery(".canvasjs-input-field")[0]).datepicker("option","maxDate", new Date(dateText) );
-          }
-        }
-      });
-    });
-    jQuery(window).on("blur", function(){
-      hideDatePicker();
-    });
-  });
-  function hideDatePicker() {
-    jQuery(".canvasjs-input-field").each(function() {
-      jQuery(this).datepicker("hide");
-    });
-  }
-}
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Trends</title>
+    <link rel="stylesheet" href="https://canvasjs.com/assets/css/jquery-ui.1.12.1.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container" >
-    <h3 style="text-align: center; margin-top: 20px; font-weight: bold; color: #18304b;margin-bottom: 10px;" id = "heading" >Forex Mid Market Rates for </h3>
-    <div class="form-inline mb-3 justify-content-center"  >
-       
-        <div class="form-group mx-2">
-            <select class="form-control" style="border-radius: 0px;" id="source">
-                <option value="USD">USD</option>
-                <option value="INR">INR</option>
-                <option value="EUR">EUR</option>
-                <option value="AUD">AUD</option>
-                <option value="GBP">GBP</option>
-            </select>
-        </div>
-        <div class="form-group mx-2 ">
-            <h4 style="color: #18304b;">to</h4>
-        </div>
-        <div class="form-group mx-2" >
-            <select class="form-control"  style="border-radius: 0px;" id="destination">
-                <option value="INR">INR</option>
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="AUD">AUD</option>
-                <option value="GBP">GBP</option>
-            </select>
-        </div>
-        <button  class="my-4 btn btn-primary" id="myButton" onclick="window.location.href='pastTrends.html?source='+document.getElementById('source').value+'&dest='+document.getElementById('destination').value;" >Past Rates and Trends</button>
-    </div>
     
-    <div id="chartContainer" style="height: 400px; width: 100%; overflow: hidden; border: 2px solid #18304b;"></div>
+    <div class="container">
 
-    <button  class="my-4 btn btn-primary" id="myButton" onclick="window.location.href='Index.html';" > Go Back</button>
-</div>
+        <h3 style="text-align: center; margin-top: 20px; font-weight: bold; color: #18304b;margin-bottom: 10px;" id = "heading" >Forex Mid Market Rates for </h3>
+        
+        <div class="form-inline mb-3 justify-content-center"  >
+        
+            <div class="form-group mx-2">
+                <select class="form-control" style="border-radius: 0px;" id="source">
+                    <option value="USD">USD</option>
+                    <option value="INR">INR</option>
+                    <option value="EUR">EUR</option>
+                    <option value="AUD">AUD</option>
+                    <option value="GBP">GBP</option>
+                </select>
+            </div>
+            <div class="form-group mx-2 ">
+                <h4 style="color: #18304b;">to</h4>
+            </div>
+            <div class="form-group mx-2" >
+                <select class="form-control"  style="border-radius: 0px;" id="destination">
+                    <option value="INR">INR</option>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="AUD">AUD</option>
+                    <option value="GBP">GBP</option>
+                </select>
+            </div>
+
+            <button  class="my-4 btn btn-primary" id="myButton" onclick="window.location.href='pastTrends.html?source='+document.getElementById('source').value+'&dest='+document.getElementById('destination').value;" >Past Rates and Trends</button>
+        
+        </div>
+    
+        <div id="chartContainer" style="height: 400px; width: 100%; overflow: hidden; border: 2px solid #18304b;"></div>
+
+        <button  class="my-4 btn btn-primary" id="myButton" onclick="window.location.href='Index.html';" > Go Back</button>
+    
+    </div>
+
+    <script type="text/javascript">
+        
+        window.onload = function () {
+            var currency_symbols = {
+                'USD': '\u0024', // US Dollar
+                'EUR': '\u20AC', // Euro
+                'GBP': '\u00A3', // British Pound Sterling
+                'INR': '\u20B9', // Indian Rupee
+                'AUD': '\u0024', // Vietnamese Dong
+            };
+          
+            var dataPoints1 = [], dataPoints2 = [] ;
+            var urlParams = new URLSearchParams(window.location.search);
+            var source = urlParams.get('source');
+            var dest = urlParams.get('dest');
+          
+            document.getElementById("heading").innerHTML = "Forex Mid Market Rates for "+source+" to "+dest;  
+          
+            var stockChart = new CanvasJS.StockChart("chartContainer", {
+                title:{
+                    fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'"
+                },
+                subtitles: [{
+                    text: "Click on inputfields to update the range using datepicker",
+                    fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'"
+                }],
+                rangeChanged: function(e) {
+                    if(e.source == "inputFields") {
+                        hideDatePicker();
+                    }
+                },
+                charts: [{
+                    axisX: {
+                        crosshair: {
+                        enabled: true,
+                        snapToDataPoint: true
+                        }
+                    },
+                    axisY: {
+                        prefix: currency_symbols[dest]
+                    },
+                    toolTip: {
+                        shared: true
+                    },
+                    data: [{
+                        type: "ohlc",
+                        name: currency_symbols[dest]+"Price",
+                        yValueFormatString: currency_symbols[dest]+"#,###.##",
+                        dataPoints : dataPoints1
+                    }]
+                }],
+                rangeSelector: {
+                    inputFields: {
+                        startValue: new Date(2018, 02, 01),
+                        endValue: new Date(2018, 04, 01)
+                    }
+                },
+                navigator: {
+                    data: [{
+                        dataPoints: dataPoints2
+                    }]
+                }
+            });
+          
+            jQuery.getJSON("https://api.jsonbin.io/b/5fbb7577522f1f0550cc6e37", function(data) {
+                for(var i = 0; i < data.length; i++){
+                    dataPoints1.push({x: new Date(data[i].date), y: [Number(data[i].open), Number(data[i].high), Number(data[i].low), Number(data[i].close)]});
+                    dataPoints2.push({x: new Date(data[i].date), y: Number(data[i].close)});
+                }
+            
+                stockChart.render();
+            
+                //add jQuery UI DatePicker to inputFields
+                jQuery(".canvasjs-input-field").each(function(index) {
+              
+                    min = new Date(dataPoints2[0].x);
+                    max = new Date(dataPoints2[dataPoints2.length-1].x);
+
+                    jQuery(this).datepicker({
+                        
+                        defaultDate: index === 0 ?  min : max,
+                        minDate: index === 0 ? min : new Date(stockChart.rangeSelector.inputFields.get("startValue")),
+                        maxDate: index == 0 ? new Date(stockChart.rangeSelector.inputFields.get("endValue")) : max,
+                        
+                        dateFormat: "yy-mm-dd",
+                        
+                        onSelect: function(dateText) {
+                            var event = new Event("change");
+                            if(index === 0) {
+                                jQuery(jQuery(".canvasjs-input-field")[0]).val(new Date(dateText));
+                                jQuery(".canvasjs-input-field")[0].dispatchEvent(event);
+                                jQuery(jQuery(".canvasjs-input-field")[1]).datepicker("option","minDate", new Date(dateText) );
+                            } 
+                            else {
+                                jQuery(jQuery(".canvasjs-input-field")[1]).val(new Date(dateText));
+                                jQuery(".canvasjs-input-field")[1].dispatchEvent(event);
+                                jQuery(jQuery(".canvasjs-input-field")[0]).datepicker("option","maxDate", new Date(dateText) );
+                            }
+                        }
+                    });
+                });
+            
+                jQuery(window).on("blur", function(){
+                    hideDatePicker();
+                });
+            });
+          
+            function hideDatePicker() {
+                jQuery(".canvasjs-input-field").each(function() {
+                    jQuery(this).datepicker("hide");
+                });
+            }
+        }
+    </script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery-ui.1.12.1.min.js"></script>
 
 </body>
 </html>
-  
-    
-    
