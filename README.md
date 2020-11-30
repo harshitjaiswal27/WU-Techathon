@@ -8,8 +8,11 @@ A foreign exchange aggregator that interfaces with multiple forex providers to p
 pip install foobar
 ``` --> 
 
-## Usage
-You directly open the Index.html in browser
+# Usage
+
+To Serve the local files at 8000 port on localhost run the following command in WU-Tecathon folder in cmd:
+
+#### `python -m http.server 8000`
 <!-- 
 ```python
 import foobar
@@ -26,3 +29,4 @@ Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+
